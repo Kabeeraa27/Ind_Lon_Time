@@ -8,29 +8,60 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
             background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
         }
         .time-container {
-            margin: 20px;
             padding: 20px;
             border-radius: 8px;
-            background-color: #fff;
+            background-color: #ffffff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Ensures it looks good on larger screens */
+            width: 100%; /* Ensures it is responsive */
+            box-sizing: border-box;
         }
-        .time-container h2 {
-            margin: 10px 0;
-            font-size: 1.5em;
+        .time-block {
+            background-color: #e0e0e0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1.5em; /* Increased font size for readability */
+        }
+        .time-container p {
+            font-size: 1.2em;
+            margin: 10px 0; /* Added margin for spacing */
+        }
+        @media (max-width: 600px) {
+            .time-container {
+                padding: 10px;
+            }
+            .time-block {
+                padding: 10px;
+            }
+            .time-container h2, .time-container p {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="time-container">
-        <h2 id="london-time">LONDON TIME IS: --:--:-- AM/PM</h2>
-        <h2 id="india-time">INDIA TIME IS: --:--:-- AM/PM</h2>
-        <h2 id="london-date">LONDON DATE IS: --/--/----</h2>
-        <h2 id="india-date">INDIA DATE IS: --/--/----</h2>
+        <div class="time-block">
+            <h2 id="london-time">LONDON TIME IS: --:--:-- AM/PM</h2>
+        </div>
+        <p id="london-date">LONDON DATE IS: --/--/----</p>
+
+        <div class="time-block">
+            <h2 id="india-time">INDIA TIME IS: --:--:-- AM/PM</h2>
+        </div>
+        <p id="india-date">INDIA DATE IS: --/--/----</p>
     </div>
+
     <script>
         function updateTime() {
             const londonTimeElem = document.getElementById('london-time');
@@ -59,4 +90,3 @@
     </script>
 </body>
 </html>
-
