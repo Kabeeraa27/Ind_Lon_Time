@@ -24,6 +24,8 @@
             max-width: 600px; /* Ensures it looks good on larger screens */
             width: 100%; /* Ensures it is responsive */
             box-sizing: border-box;
+            position: relative; /* For positioning the small text */
+            text-align: center; /* Center text within container */
         }
         .time-block {
             background-color: #e0e0e0;
@@ -35,6 +37,11 @@
         .time-container p {
             font-size: 1.2em;
             margin: 10px 0; /* Added margin for spacing */
+        }
+        .made-by {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px; /* Space between text and time blocks */
         }
         @media (max-width: 600px) {
             .time-container {
@@ -51,6 +58,7 @@
 </head>
 <body>
     <div class="time-container">
+        <div class="made-by">MADE BY KABEER</div>
         <div class="time-block">
             <h2 id="london-time">LONDON TIME IS: --:--:-- AM/PM</h2>
         </div>
