@@ -32,7 +32,7 @@ If you want to run the website locally, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/ind-lon-time.git
+   git clone https://github.com/Kabeeraa27/ind-lon-time.git
    cd ind-lon-time
    ```
 
