@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Time Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .time-container {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .time-container h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="time-container">
+        <h2 id="london-time">LONDON TIME IS: --:--:-- AM/PM</h2>
+        <h2 id="india-time">INDIA TIME IS: --:--:-- AM/PM</h2>
+        <h2 id="london-date">LONDON DATE IS: --/--/----</h2>
+        <h2 id="india-date">INDIA DATE IS: --/--/----</h2>
+    </div>
+    <script>
+        function updateTime() {
+            const londonTimeElem = document.getElementById('london-time');
+            const indiaTimeElem = document.getElementById('india-time');
+            const londonDateElem = document.getElementById('london-date');
+            const indiaDateElem = document.getElementById('india-date');
+
+            // Get current time in UTC
+            const now = new Date();
+
+            // Format London time and date (12-hour format with AM/PM)
+            const londonTime = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', hour12: true });
+            const londonDate = now.toLocaleDateString('en-GB', { timeZone: 'Europe/London' });
+            londonTimeElem.textContent = `LONDON TIME IS: ${londonTime}`;
+            londonDateElem.textContent = `LONDON DATE IS: ${londonDate}`;
+
+            // Format India time and date (12-hour format with AM/PM)
+            const indiaTime = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour12: true });
+            const indiaDate = now.toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' });
+            indiaTimeElem.textContent = `INDIA TIME IS: ${indiaTime}`;
+            indiaDateElem.textContent = `INDIA DATE IS: ${indiaDate}`;
+        }
+
+        setInterval(updateTime, 1000); // Update the time every second
+        updateTime(); // Initial call to display the time immediately
+    </script>
+</body>
+</html>
+
